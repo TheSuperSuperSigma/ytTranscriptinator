@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YTTranscriptinator</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <i class="fab fa-youtube"></i>
+                <h1>YTTranscriptinator</h1>
+            </div>
+            <p class="subtitle">Convert YouTube videos to text transcripts</p>
+        </header>
+
+        <main class="main-content">
+            <div class="input-section">
+                <div class="input-container">
+                    <input type="url" id="videoUrl" placeholder="Paste YouTube URL here..." class="url-input">
+                    <button id="getTranscriptBtn" class="btn btn-primary">
+                        <i class="fas fa-microphone"></i>
+                        Get Transcript
+                    </button>
+                </div>
+                
+                <div id="videoInfo" class="video-info hidden">
+                    <div class="video-preview">
+                        <img id="thumbnail" src="" alt="Video thumbnail" class="thumbnail">
+                        <div class="video-details">
+                            <h3 id="videoTitle"></h3>
+                            <p id="videoDuration"></p>
+                        </div>
+                    </div>
+                    <button id="transcribeBtn" class="btn btn-success">
+                        <i class="fas fa-file-text"></i>
+                        Transcribe Video
+                    </button>
+                </div>
+            </div>
+
+            <div class="bulk-section">
+                <h3>Bulk Transcribe</h3>
+                <div class="bulk-input-container">
+                    <textarea id="bulkUrls" placeholder="Paste multiple YouTube URLs (one per line)..." class="bulk-textarea"></textarea>
+                    <button id="bulkTranscribeBtn" class="btn btn-secondary">
+                        <i class="fas fa-list"></i>
+                        Bulk Transcribe
+                    </button>
+                </div>
+            </div>
+
+            <div class="progress-section hidden" id="progressSection">
+                <div class="progress-container">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                    <p class="progress-text" id="progressText">Processing...</p>
+                </div>
+            </div>
+
+            <div class="result-section hidden" id="resultSection">
+                <div class="success-message">
+                    <i class="fas fa-check-circle"></i>
+                    <h3>Transcription Complete!</h3>
+                    <p id="resultMessage"></p>
+                    <button id="downloadBtn" class="btn btn-download">
+                        <i class="fas fa-download"></i>
+                        Download Transcript
+                    </button>
+                </div>
+            </div>
+
+            <div class="transcriptions-section">
+                <h2>Previous Transcriptions</h2>
+                <div id="transcriptionsList" class="transcriptions-list">
+                    <div class="loading">
+                        <i class="fas fa-spinner fa-spin"></i>
+                        Loading transcriptions...
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
